@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  colaboradores:
+    image: ${DOCKER_REGISTRY-}colaboradores
+    build:
+      context: .
+      dockerfile: colaboradores/Dockerfile
+    ports:
+      - "32270:8080"
+      - "8081:8081"
+
+  teste.database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 4NaLqk6oxaiiKjl
+      MYSQL_DATABASE: teste
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
