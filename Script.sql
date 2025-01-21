@@ -1,5 +1,4 @@
 use sys;
-drop database teste;
 create database teste;
 use teste;
 
